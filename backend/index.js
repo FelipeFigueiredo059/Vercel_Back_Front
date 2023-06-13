@@ -7,6 +7,7 @@ const userRoute = require("./views/routes/User");
 const passwordRoute = require("./views/routes/Password");
 const employeeRoute = require("./views/routes/Employee");
 const funcionarioRoute = require("./views/routes/Cursos");
+const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 
 app.use(express.json());
@@ -18,7 +19,7 @@ app.use("/employeeinfo", employeeRoute);
 app.use("/funcionario", funcionarioRoute);
 
 database.sequelize.sync().then(() => {
-  app.listen(3005, () => {
+  app.listen(PORT, () => {
     console.log("Servidor está rodando na porta 3005");
   });
 });
